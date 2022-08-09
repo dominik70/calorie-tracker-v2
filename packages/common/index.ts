@@ -1,1 +1,2 @@
-export type Test = string;
+export * from './schemas';
+export * from './types';
