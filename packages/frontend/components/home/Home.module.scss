@@ -1,0 +1,54 @@
+.subcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 75px;
+  flex-wrap: wrap;
+
+  @media (max-width: 960px) {
+    gap: 25px;
+  }
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(4rem, 6vw, 6rem);
+  text-align: center;
+}
+
+.hl {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.description {
+  max-width: 30ch;
+  margin: 0 auto;
+  margin-top: 35px;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 75px;
+
+  @media (max-width: 960px) {
+    margin-top: 50px;
+  }
+}
+
+.img {
+  width: clamp(175px, 50%, 400px);
+  position: relative;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 15px;
+}

@@ -1,0 +1,49 @@
+.input {
+  border-radius: 50px;
+  font-size: 1.6rem;
+  border: 1px solid var(--black);
+  background-color: var(--white);
+
+  &.small {
+    padding-left: 6px;
+    width: 70px;
+    height: 35px;
+  }
+
+  &.large {
+    padding: 0 12px;
+    width: 250px;
+    height: 40px;
+  }
+
+  &[type='date'] {
+    width: 120px;
+    padding-left: 5px;
+
+    ::-webkit-datetime-edit-month-field {
+      padding: 0;
+    }
+    ::-webkit-datetime-edit-day-field {
+      padding: 0;
+    }
+    ::-webkit-datetime-edit-year-field {
+      padding: 0;
+    }
+    ::-webkit-calendar-picker-indicator {
+      margin: 0;
+    }
+  }
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 5px;
+
+  &.small {
+    font-size: 1.4rem;
+    font-weight: 600;
+    gap: 3px;
+  }
+}

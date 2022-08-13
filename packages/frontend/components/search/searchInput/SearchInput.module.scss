@@ -1,0 +1,35 @@
+.inputContainer {
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+}
+
+.SearchInput {
+  height: 45px;
+  width: 100%;
+  border-radius: 50px;
+  border: none;
+  font-size: 1.8rem;
+  padding: 0 20px;
+  padding-right: 50px;
+
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
+}
+
+.searchButton {
+  width: 45px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}

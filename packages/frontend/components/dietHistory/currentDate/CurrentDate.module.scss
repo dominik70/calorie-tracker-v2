@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 15px;
+  margin-bottom: 50px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+
+  @media (max-width: 960px) {
+    max-width: 320px;
+  }
+}
+
+.date {
+  margin: auto 25px;
+  font-size: 1.8rem;
+  font-weight: bold;
+
+  @media (max-width: 960px) {
+    margin: auto 15px;
+  }
+}
+
+.subcontainer {
+  flex-basis: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 15px;
+}

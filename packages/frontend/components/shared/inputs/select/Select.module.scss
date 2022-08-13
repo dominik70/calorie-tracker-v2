@@ -1,0 +1,18 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  gap: 3px;
+}
+
+.select {
+  min-width: 100px;
+  height: 35px;
+  border-radius: 25px;
+  border: 1px solid var(--black);
+  padding-left: 8px;
+  font-size: 1.6rem;
+  background-color: var(--white);
+}

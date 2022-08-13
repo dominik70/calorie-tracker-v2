@@ -1,5 +1,6 @@
 import { z } from 'zod';
-import { loginSchema, registerSchema } from './schemas';
+import { createFoodBody, loginSchema, registerSchema } from './schemas';
 
 export type Login = z.infer<typeof loginSchema>;
 export type Register = z.infer<typeof registerSchema>;
+export type CreateFoodBody = z.infer<typeof createFoodBody>;

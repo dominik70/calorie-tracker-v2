@@ -1,0 +1,30 @@
+.container {
+  border-radius: 20px;
+  background-color: var(--white);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 450px;
+  max-width: 100%;
+  padding: 20px;
+  border: 2px solid var(--primary);
+  font-size: 1.4rem;
+}
+
+.name {
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 2rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 8px;
+  margin-top: 15px;
+}

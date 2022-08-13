@@ -1,0 +1,13 @@
+.error {
+  background-color: var(--error);
+  color: var(--white);
+  border-radius: 15px;
+  padding: 5px 10px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
+}

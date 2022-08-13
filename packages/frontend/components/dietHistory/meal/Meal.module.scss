@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  text-align: center;
+
+  &:last-of-type {
+    margin-bottom: 40px;
+  }
+}
+
+.heading {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 50px;
+  position: relative;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary);
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    transform: translateY(-50%);
+  }
+
+  &:after {
+    left: auto;
+    right: -30px;
+  }
+}
+
+.cardList {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 25px 0;
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 10px;
+}

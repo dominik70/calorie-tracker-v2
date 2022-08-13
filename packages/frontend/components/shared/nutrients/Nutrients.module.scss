@@ -1,0 +1,47 @@
+.container {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  gap: 20px;
+}
+
+.nutrient {
+  margin-top: 5px;
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 5px;
+    background-color: var(--primary);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -12px;
+  }
+
+  &:first-of-type {
+    &:before {
+      display: none;
+    }
+  }
+
+  @media (max-width: 960px) {
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.amount {
+  font-weight: bold;
+}
+
+.name {
+  text-decoration: none;
+  margin-right: 4px;
+}
