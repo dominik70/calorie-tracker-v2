@@ -15,6 +15,7 @@ import {
 import { PrismaSessionStore } from '@quixo3/prisma-session-store';
 import { authRouter } from './modules/auth/auth-routes';
 import { usersRouter } from './modules/users/users-router';
+import { foodRouter } from './modules/food/food-router';
 
 dotenv.config();
 
@@ -42,6 +43,7 @@ app.use(cors({ origin: CORS_ORIGIN, credentials: true }));
 app.use(express.json());
 
 app.use('/api/sessions', authRouter);
+app.use('/api/food', foodRouter);
 app.use('/api/users', usersRouter);
 
 app.use(handleError);

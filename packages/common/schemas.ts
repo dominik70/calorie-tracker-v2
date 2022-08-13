@@ -1,3 +1,4 @@
+import { MEALS } from './constants';
 import { z } from 'zod';
 
 export const loginSchema = z.object({
@@ -25,3 +26,15 @@ export const registerSchema = z
     message: 'passwords must match',
     path: [''],
   });
+
+export const createFoodBody = z.object({
+  quantity: z.preprocess((val) => Number(val), z.number().min(1).max(10000)),
+  foodId: z.number(),
+  date: z.string(),
+  meal: z.enum(MEALS),
+});
+
+export const updateFoodBody = z.object({
+  quantity: z.preprocess((val) => Number(val), z.number().min(1).max(10000)),
+  meal: z.enum(MEALS),
+});

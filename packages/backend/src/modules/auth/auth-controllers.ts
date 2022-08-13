@@ -2,12 +2,12 @@ import status from 'http-status';
 import type { NextFunction, Request, Response } from 'express';
 import { SESSION_NAME } from '../../utils/constants';
 import { verifyUser } from './auth-services';
-import { Login } from '@calorie-tracker/common';
 import { AppError } from '../../errors/AppError';
 import { Req } from '../../types';
+import { CreateSession } from './auth-schema';
 
 export const createSession = async (
-  req: Req<{ body: Login }>,
+  req: Req<CreateSession>,
   res: Response,
   next: NextFunction
 ) => {

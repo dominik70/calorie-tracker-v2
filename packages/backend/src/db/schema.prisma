@@ -8,9 +8,10 @@ datasource db {
 }
 
 model User {
-  id       String @id @default(cuid())
-  email    String @unique
+  id       String     @id @default(cuid())
+  email    String     @unique
   password String
+  UserFood UserFood[]
 }
 
 model Session {
@@ -18,4 +19,62 @@ model Session {
   sid       String   @unique
   data      String
   expiresAt DateTime
+}
+
+model Food {
+  id         Int              @id
+  categoryId Int
+  name       String
+  category   Category         @relation(fields: [categoryId], references: [id])
+  nutrients  NutrientAmount[]
+  UserFood   UserFood[]
+}
+
+model Category {
+  id   Int    @id
+  name String
+  food Food[]
+}
+
+model Nutrient {
+  id             Int              @id
+  unitId         Int
+  symbol         String
+  name           String
+  unit           Unit             @relation(fields: [unitId], references: [id])
+  nutrientAmount NutrientAmount[]
+}
+
+model Unit {
+  id       Int        @id
+  name     String
+  nutrient Nutrient[]
+}
+
+model NutrientAmount {
+  foodId     Int
+  nutrientId Int
+  amount     Float
+  food       Food     @relation(fields: [foodId], references: [id])
+  nutrient   Nutrient @relation(fields: [nutrientId], references: [id])
+
+  @@id([foodId, nutrientId], name: "food_nutrient")
+}
+
+model UserFood {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  date      DateTime
+  quantity  Float
+  foodId    Int
+  userId    String
+  food      Food     @relation(fields: [foodId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+  meal      Meal
+}
+
+enum Meal {
+  breakfast
+  lunch
+  dinner
 }
