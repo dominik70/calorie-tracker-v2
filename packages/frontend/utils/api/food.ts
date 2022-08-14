@@ -1,4 +1,4 @@
-import { FoodBody } from '@calorie-tracker/common';
+import { CreateFoodBody } from '@calorie-tracker/common';
 import { fetcher } from '../fetcher';
 
 interface Query {
@@ -12,7 +12,7 @@ export const getFood = async ({ page, ...query }: Query) => {
   return fetcher(`/food?${params.toString()}`);
 };
 
-export const addUserFood = (userId: string, body: FoodBody) => {
+export const addUserFood = (userId: string, body: CreateFoodBody) => {
   return fetcher(`/users/${userId}/food`, {
     method: 'POST',
     body,
@@ -26,7 +26,7 @@ export const deleteUserFood = (userId: string, foodId: string) => {
 interface UpdateUserFood {
   userId: string;
   foodId: string;
-  body: Partial<FoodBody>;
+  body: Partial<CreateFoodBody>;
 }
 
 export const updateUserFood = ({ userId, foodId, body }: UpdateUserFood) => {

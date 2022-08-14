@@ -1,4 +1,4 @@
-import styles from './HistoryDate.module.scss';
+import styles from './CurrentDate.module.scss';
 import { useRef } from 'react';
 import { useDate } from '../../../contexts/DateContext';
 import { formatDate, getInputDateFormat } from '../../../utils/helpers';

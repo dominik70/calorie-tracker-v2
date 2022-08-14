@@ -1,5 +1,5 @@
 import styles from './Nutrients.module.scss';
-import { Nutrient } from '../../types';
+import { Nutrient } from '../../../types';
 
 interface Props {
   nutrients: Nutrient[];

@@ -1,8 +1,7 @@
 import styles from './Cards.module.scss';
-import { Food, foodBody, FoodBody, MEALS } from '@calorie-tracker/common';
+import { createFoodBody, CreateFoodBody, MEALS } from '@calorie-tracker/common';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { Nutrients } from '../../nutrients/Nutrients';
 import { Input } from '../inputs/Input';
 import { Select } from '../inputs/select/Select';
 import { DEFAULT_QUANTITY } from '../../../utils/constants';
@@ -11,6 +10,8 @@ import { Loader } from '../loader/Loader';
 import { formatErrors, getInputDateFormat } from '../../../utils/helpers';
 import { Error } from '../error/Error';
 import { useUserFood } from '../../../hooks/useUserFood';
+import { Nutrients } from '../nutrients/Nutrients';
+import { Food } from '../../../types';
 
 interface Props {
   food: Food;
@@ -25,8 +26,8 @@ export const SearchCard = ({ food }: Props) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FoodBody>({
-    resolver: zodResolver(foodBody),
+  } = useForm<CreateFoodBody>({
+    resolver: zodResolver(createFoodBody),
     defaultValues: {
       foodId: food.id,
       quantity: DEFAULT_QUANTITY,
@@ -34,7 +35,7 @@ export const SearchCard = ({ food }: Props) => {
     },
   });
 
-  const onSubmit = (data: FoodBody) => {
+  const onSubmit = (data: CreateFoodBody) => {
     addFood(data);
   };
 
