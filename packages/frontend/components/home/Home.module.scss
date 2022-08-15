@@ -1,4 +1,4 @@
-.subcontainer {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   flex-wrap: wrap;
 
   @media (max-width: 960px) {
-    gap: 25px;
+    gap: 10px;
   }
 }
 
@@ -25,8 +25,12 @@
 
 .description {
   max-width: 30ch;
-  margin: 0 auto;
   margin-top: 35px;
+
+  @media (max-width: 960px) {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
 }
 
 .actions {
@@ -36,9 +40,8 @@
   flex-direction: column;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 75px;
 
-  @media (max-width: 960px) {
+  @media (min-width: 960px) {
     margin-top: 50px;
   }
 }

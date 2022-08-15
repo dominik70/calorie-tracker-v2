@@ -22,6 +22,7 @@
   position: fixed;
   width: 250px;
   height: 100vh;
+  height: -webkit-fill-available;
   background-color: var(--primary);
   top: 0;
   right: -300px;

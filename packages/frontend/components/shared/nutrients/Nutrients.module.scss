@@ -1,16 +1,24 @@
 .container {
   margin-top: 10px;
+  margin-bottom: 5px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
   font-size: 1.4rem;
-  gap: 20px;
 }
 
 .nutrient {
-  margin-top: 5px;
   position: relative;
+  margin-right: 10px;
+  margin-left: 10px;
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 
   &:before {
     content: '';

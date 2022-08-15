@@ -9,7 +9,7 @@ export const Home = () => {
 
   return (
     <>
-      <div className={styles.subcontainer}>
+      <div className={styles.container}>
         <div className={styles.img}>
           <Image
             src={'/img/illustration.png'}
