@@ -2,6 +2,12 @@
   "name": "@calorie-tracker/common",
   "version": "1.0.0",
   "description": "",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build",
+    "postinstall": "npm run build"
+  },
+  "main": "dist/index.js",
   "keywords": [],
   "author": "",
   "license": "ISC"
