@@ -11,7 +11,7 @@ export const useClickOutside = (onClose: () => void) => {
 
   const clickListener = useCallback(
     (e: MouseEvent) => {
-      if (!ref.current || ref.current.contains(e.target as HTMLElement)) {
+      if (!ref.current || !ref.current.contains(e.target as HTMLElement)) {
         onClose();
       }
     },
