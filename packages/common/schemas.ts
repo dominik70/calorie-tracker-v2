@@ -24,7 +24,7 @@ export const registerSchema = z
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: 'passwords must match',
-    path: [''],
+    path: ['confirmPassword'],
   });
 
 export const createFoodBody = z.object({
