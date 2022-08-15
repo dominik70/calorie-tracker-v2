@@ -19,7 +19,7 @@ export const useUserFood = () => {
   const { user } = useUser();
   const { date } = useDate();
 
-  const { data: food, ...rest } = useQuery<UserFood[]>(
+  const { data: food, ...rest } = useQuery<UserFood[], ErrorType>(
     [FOOD_KEY, date],
     () =>
       getUserFood({
@@ -34,7 +34,7 @@ export const useUserFood = () => {
     }
   );
 
-  const userId = user?.id || '';
+  const userId = user?.id;
 
   const onError = (error: ErrorType) => {
     toast.error(error.message);
@@ -44,7 +44,7 @@ export const useUserFood = () => {
     (body) => addUserFood(userId, body),
     {
       onSuccess: () => {
-        queryClient.invalidateQueries([FOOD_KEY]);
+        queryClient.invalidateQueries([FOOD_KEY, date]);
         toast.success('Successfully added food');
       },
       onError,
@@ -57,7 +57,7 @@ export const useUserFood = () => {
     { foodId: string; body: Partial<{ meal: Meal; quantity: number }> }
   >(({ foodId, body }) => updateUserFood({ foodId, userId, body }), {
     onSuccess: () => {
-      queryClient.invalidateQueries([FOOD_KEY]);
+      queryClient.invalidateQueries([FOOD_KEY, date]);
       toast.success('Successfully updated food');
     },
     onError,
@@ -67,7 +67,7 @@ export const useUserFood = () => {
     (foodId: string) => deleteUserFood(userId, foodId),
     {
       onSuccess: () => {
-        queryClient.invalidateQueries([FOOD_KEY]);
+        queryClient.invalidateQueries([FOOD_KEY, date]);
         toast.success('Successfully deleted food');
       },
       onError,

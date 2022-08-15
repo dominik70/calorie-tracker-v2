@@ -9,7 +9,7 @@ async function seed() {
   for (const table of tables) {
     console.log(`seeding ${table}.csv...`);
     await prisma.$executeRawUnsafe(
-      `\copy "${table}" from '${path.resolve(
+      `copy "${table}" from '${path.resolve(
         'src/db/data/' + table + '.csv'
       )}' delimiter ',' CSV`
     );

@@ -16,7 +16,7 @@ export const DietHistory = () => {
   }
 
   if (!food) {
-    return <Error message={'Failed to fetch data'} />;
+    return <Error message="Failed to fetch data" />;
   }
 
   return (
