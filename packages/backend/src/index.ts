@@ -21,6 +21,7 @@ dotenv.config();
 
 const app = express();
 
+app.enable('trust proxy');
 app.use(
   session({
     name: SESSION_NAME,
@@ -31,6 +32,7 @@ app.use(
       maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
       secure: IS_PRODUCTION,
+      sameSite: 'lax',
     },
     store: new PrismaSessionStore(new PrismaClient(), {
       checkPeriod: 2 * 60 * 1000,

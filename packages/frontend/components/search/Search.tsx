@@ -7,23 +7,20 @@ import { SectionTitle } from '../shared/sectionTitle/SectionTitle';
 import { Pagination } from '../shared/pagination/Pagination';
 import { SearchResults } from './searchResults/SearchResults';
 import { useSearchFood } from '../../hooks/useSearchFood';
-import { Category } from '../../types';
 import { Select } from '../shared/inputs/select/Select';
 import { Loader } from '../shared/loader/Loader';
 import { Error } from '../shared/error/Error';
+import { useCategories } from '../../hooks/useCategories';
 
-interface Props {
-  categories: Category[];
-}
-
-export const Search = ({ categories }: Props) => {
+export const Search = () => {
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
   const debouncedQuery = useDebounce(query, DEBOUNCE_TIMEOUT);
   const enabled = debouncedQuery.length >= 1 || page > 1;
+  const { data: categories } = useCategories();
   const { data, isLoading, error, refetch } = useSearchFood(
-    { query: debouncedQuery, page, category },
+    { query: debouncedQuery, page, category: selectedCategory },
     enabled
   );
 
@@ -33,7 +30,7 @@ export const Search = ({ categories }: Props) => {
   };
 
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setCategory(e.target.value);
+    setSelectedCategory(e.target.value);
     setPage(1);
   };
 
@@ -48,11 +45,13 @@ export const Search = ({ categories }: Props) => {
           enabled={enabled}
         />
         <Select label="category" id="category" onChange={handleCategoryChange}>
-          {[{ name: 'All', id: 0 }, ...categories].map(({ name, id }) => (
-            <option value={id} key={id}>
-              {name}
-            </option>
-          ))}
+          {[{ name: 'All', id: 0 }, ...(categories || [])].map(
+            ({ name, id }) => (
+              <option value={id} key={id}>
+                {name}
+              </option>
+            )
+          )}
         </Select>
       </div>
       {isLoading && enabled && <Loader />}

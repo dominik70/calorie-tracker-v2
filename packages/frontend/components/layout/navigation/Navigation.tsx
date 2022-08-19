@@ -13,6 +13,10 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const innerRef = useClickOutside(() => setIsOpen(false));
 
+  const toggleNavigation = () => {
+    setIsOpen((prevState) => !prevState);
+  };
+
   const {
     user,
     signOutMutation: { mutate: signOut },
@@ -22,7 +26,7 @@ export const Navigation = () => {
     <div className={styles.container}>
       <nav className={styles.navigation} ref={innerRef}>
         <Logo />
-        <Hamburger isOpen={isOpen} setIsOpen={setIsOpen} />
+        <Hamburger isOpen={isOpen} onToggle={toggleNavigation} />
         <div className={clsx(styles.menu, isOpen && styles.open)}>
           <NavLinks />
           {user ? (
