@@ -1,5 +1,4 @@
 import styles from './Navigation.module.scss';
-import Link from 'next/link';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useClickOutside } from '../../../hooks/useClickOutside';
@@ -8,6 +7,7 @@ import { Hamburger } from './hamburger/Hamburger';
 import { Button } from '../../shared/button/Button';
 import { NavLinks } from './navLinks/NavLinks';
 import { useUser } from '../../../hooks/useUser';
+import { LinkButton } from '../../shared/button/LinkButton';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,20 +43,12 @@ export const Navigation = () => {
             </div>
           ) : (
             <div className={styles.subcontainer}>
-              <Link href="sign-in">
-                <a>
-                  <Button type="button" variant="contained" size="small">
-                    Sign in
-                  </Button>
-                </a>
-              </Link>
-              <Link href="sign-up">
-                <a>
-                  <Button type="button" variant="outlined" size="small">
-                    Sign up
-                  </Button>
-                </a>
-              </Link>
+              <LinkButton href="sign-in" variant="contained" size="small">
+                Sign in
+              </LinkButton>
+              <LinkButton href="sign-up" variant="outlined" size="small">
+                Sign up
+              </LinkButton>
             </div>
           )}
         </div>

@@ -1,8 +1,7 @@
 import styles from './Home.module.scss';
 import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '../shared/button/Button';
 import { useUser } from '../../hooks/useUser';
+import { LinkButton } from '../shared/button/LinkButton';
 
 export const Home = () => {
   const { user } = useUser();
@@ -35,25 +34,19 @@ export const Home = () => {
         {!user && (
           <>
             <div className={styles.buttonContainer}>
-              <Link href="sign-in">
-                <a>
-                  <Button variant="contained">Sign in</Button>
-                </a>
-              </Link>
-              <Link href="sign-up">
-                <a>
-                  <Button variant="outlined">Sign up</Button>
-                </a>
-              </Link>
+              <LinkButton href="sign-in" variant="outlined">
+                Sign in
+              </LinkButton>
+              <LinkButton href="sign-up" variant="outlined">
+                Sign up
+              </LinkButton>
             </div>
             <p>or</p>
           </>
         )}
-        <Link href="search">
-          <a>
-            <Button variant="contained">Search food</Button>
-          </a>
-        </Link>
+        <LinkButton href="search" variant="contained">
+          Search food
+        </LinkButton>
       </div>
     </>
   );

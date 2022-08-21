@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import styles from './Auth.module.scss';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
@@ -10,6 +9,7 @@ import { Input } from '../shared/inputs/Input';
 import { Button } from '../shared/button/Button';
 import { useUser } from '../../hooks/useUser';
 import { Error } from '../shared/error/Error';
+import { LinkButton } from '../shared/button/LinkButton';
 
 export const SignUp = () => {
   const {
@@ -84,13 +84,9 @@ export const SignUp = () => {
       </form>
       <div className={styles.info}>
         <span>Have an account?</span>
-        <Link href="sign-in">
-          <a>
-            <Button type="button" variant="outlined" size="small">
-              Sign in
-            </Button>
-          </a>
-        </Link>
+        <LinkButton href="sign-in" variant="outlined" size="small">
+          Sign in
+        </LinkButton>
       </div>
     </div>
   );
