@@ -1,4 +1,4 @@
-![project image](https://i.imgur.com/1Er0Xu8.png)
+![project image](https://i.imgur.com/UITsN3i.png)
 
 ## Project overview
 
@@ -32,12 +32,12 @@ My calorie is a calorie tracker app that allows you to control your calories and
 
 https://my-calorie.vercel.app/
 
-### Testing credentials
+#### Testing credentials
 
 email: user@email.com\
 password: User1!
 
-## Images
+## Images source
 
 - Icons/logo: [flaticon](http://www.flaticon.com/)
 - Illustration: [blushdesign](https://blush.design/)
