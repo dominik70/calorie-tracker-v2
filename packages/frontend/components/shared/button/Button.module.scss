@@ -8,6 +8,7 @@
   white-space: nowrap;
   display: flex;
   align-items: center;
+  color: var(--black);
 
   &.contained {
     background-color: var(--primary);
