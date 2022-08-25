@@ -1,5 +1,3 @@
-import { API_BASE_URL } from './constants';
-
 type FetcherConfig = {
   method?: HTTPMethod;
   body?: object;
@@ -20,7 +18,7 @@ type HTTPMethod =
 export async function fetcher(
   path: string,
   { method, body, config }: FetcherConfig = { method: 'GET' },
-  baseUrl = API_BASE_URL
+  baseUrl = '/api'
 ) {
   const response = await fetch(baseUrl + path, {
     headers: {

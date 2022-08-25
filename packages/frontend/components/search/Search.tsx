@@ -10,15 +10,14 @@ import { useSearchFood } from '../../hooks/useSearchFood';
 import { Select } from '../shared/inputs/select/Select';
 import { Loader } from '../shared/loader/Loader';
 import { Error } from '../shared/error/Error';
-import { useCategories } from '../../hooks/useCategories';
+import { Category } from '../../types';
 
-export const Search = () => {
+export const Search = ({ categories }: { categories: Category[] }) => {
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const debouncedQuery = useDebounce(query, DEBOUNCE_TIMEOUT);
   const enabled = debouncedQuery.length >= 1 || page > 1;
-  const { data: categories } = useCategories();
   const { data, isLoading, error, refetch } = useSearchFood(
     { query: debouncedQuery, page, category: selectedCategory },
     enabled
