@@ -12,7 +12,6 @@ const QUERY_KEY = ['user'];
 export const useUser = () => {
   const queryClient = useQueryClient();
   const { data: user, ...rest } = useQuery<User>(QUERY_KEY, getSession, {
-    staleTime: Infinity,
     retry: false,
   });
 

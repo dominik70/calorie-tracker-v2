@@ -28,7 +28,6 @@ export const useUserFood = () => {
         to: endOfDay(date).toISOString(),
       }),
     {
-      staleTime: Infinity,
       retry: false,
       enabled: !!user,
     }
