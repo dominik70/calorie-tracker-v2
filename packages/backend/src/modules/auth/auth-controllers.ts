@@ -2,15 +2,11 @@ import status from 'http-status';
 import type { NextFunction, Request, Response } from 'express';
 import { SESSION_NAME } from '../../utils/constants';
 import { verifyUser } from './auth-services';
-import { AppError } from '../../errors/AppError';
+import { AppError } from '../../utils/errors/AppError';
 import { Req } from '../../types';
 import { CreateSession } from './auth-schema';
 
-export const createSession = async (
-  req: Req<CreateSession>,
-  res: Response,
-  next: NextFunction
-) => {
+export const createSession = async (req: Req<CreateSession>, res: Response) => {
   const { email, password } = req.body;
 
   const user = await verifyUser(email, password);

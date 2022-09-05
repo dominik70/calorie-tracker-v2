@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { validate } from '../common/validate';
+import { validate } from '../../utils/validate';
 import { deleteSession, getSession, createSession } from './auth-controllers';
 import { createSessionSchema } from './auth-schema';
 

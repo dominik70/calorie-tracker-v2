@@ -3,7 +3,7 @@ import 'express-async-errors';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import session from 'express-session';
-import { handleError } from './errors/handleError';
+import { handleError } from './utils/errors/handleError';
 import { PrismaClient } from '@prisma/client';
 import {
   PORT,

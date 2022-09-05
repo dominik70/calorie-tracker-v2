@@ -1,6 +1,6 @@
 import status from 'http-status';
 import { RequestHandler } from 'express';
-import { AppError } from '../../errors/AppError';
+import { AppError } from '../../utils/errors/AppError';
 
 export const authorize: RequestHandler = (req, res, next) => {
   const { userId } = req.params;

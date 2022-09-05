@@ -1,8 +1,8 @@
 import status from 'http-status';
 import { RequestHandler } from 'express';
 import { AnyZodObject, ZodError } from 'zod';
-import { AppError } from '../../errors/AppError';
-import { formatError } from '../../errors/formatErrors';
+import { AppError } from './errors/AppError';
+import { formatError } from './errors/formatErrors';
 
 export const validate =
   (schema: AnyZodObject): RequestHandler =>

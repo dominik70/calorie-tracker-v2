@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { validate } from '../common/validate';
+import { validate } from '../../utils/validate';
 import { getFood, getFoods, getCategories } from './food-controller';
 import { getFoodSchema, getFoodsSchema } from './food-schema';
 

@@ -9,7 +9,7 @@ import {
   updateUserFood,
 } from '../users/users-services';
 import { Req } from '../../types';
-import { AppError } from '../../errors/AppError';
+import { AppError } from '../../utils/errors/AppError';
 import {
   CreateUser,
   CreateUserFood,
