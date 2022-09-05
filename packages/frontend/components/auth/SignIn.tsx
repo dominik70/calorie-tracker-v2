@@ -10,6 +10,7 @@ import { Button } from '../shared/button/Button';
 import { useUser } from '../../hooks/useUser';
 import { Error } from '../shared/error/Error';
 import { LinkButton } from '../shared/button/LinkButton';
+import { useEffect } from 'react';
 
 export const SignIn = () => {
   const {
@@ -31,9 +32,11 @@ export const SignIn = () => {
     signIn(data);
   };
 
-  if (user) {
-    router.replace((router.query.from as string) || '/');
-  }
+  useEffect(() => {
+    if (user) {
+      router.replace((router.query.from as string) || '/');
+    }
+  }, [user]);
 
   return (
     <div className={styles.container}>
