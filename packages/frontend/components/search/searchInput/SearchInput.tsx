@@ -5,7 +5,6 @@ interface Props {
   query: string;
   handleQueryChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   refetch: () => void;
-  enabled: boolean;
 }
 
 export const SearchInput = ({ query, handleQueryChange, refetch }: Props) => {

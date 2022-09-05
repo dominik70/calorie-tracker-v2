@@ -41,16 +41,13 @@ export const Search = ({ categories }: { categories: Category[] }) => {
           query={query}
           handleQueryChange={handleQueryChange}
           refetch={refetch}
-          enabled={enabled}
         />
         <Select label="category" id="category" onChange={handleCategoryChange}>
-          {[{ name: 'All', id: 0 }, ...(categories || [])].map(
-            ({ name, id }) => (
-              <option value={id} key={id}>
-                {name}
-              </option>
-            )
-          )}
+          {[{ name: 'All', id: 0 }, ...categories].map(({ name, id }) => (
+            <option value={id} key={id}>
+              {name}
+            </option>
+          ))}
         </Select>
       </div>
       {isLoading && enabled && <Loader />}

@@ -26,5 +26,6 @@ export const useClickOutside = (onClose: () => void) => {
       document.removeEventListener('keyup', escapeListener);
     };
   }, []);
+
   return ref;
 };
