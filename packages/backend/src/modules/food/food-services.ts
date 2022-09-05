@@ -28,7 +28,7 @@ export const findFoods = async (
   });
 
   const food = await prisma.food.findMany({
-    take: pageSize,
+    take: Number(pageSize),
     skip: (page - 1) * pageSize,
     where,
     select: FOOD_SELECT,

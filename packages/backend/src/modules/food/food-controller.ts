@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from 'express';
 import { GetFood, GetFoods } from './food-schema';
 import { Req } from '../../types';
 import { findCategories, findFood, findFoods } from './food-services';
-import { AppError } from '../../errors/AppError';
+import { AppError } from '../../utils/errors/AppError';
 
 export const getFood = async (
   req: Req<GetFood>,
@@ -23,9 +23,9 @@ export const getFood = async (
 };
 
 export const getFoods = async (req: Req<GetFoods>, res: Response) => {
-  const { query, page, category } = req.query;
+  const { query, page, category, pageSize } = req.query;
 
-  const food = await findFoods(query, page, category);
+  const food = await findFoods(query, page, category, pageSize);
 
   res.json(food);
 };

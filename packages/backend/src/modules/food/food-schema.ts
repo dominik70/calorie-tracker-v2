@@ -13,6 +13,7 @@ export const getFoodsSchema = z.object({
     page: z.preprocess((v) => Number(v), z.number().int()).optional(),
     query: z.string().optional(),
     category: z.string().optional(),
+    pageSize: z.preprocess((v) => Number(v), z.number().int()).optional(),
   }),
 });
 
