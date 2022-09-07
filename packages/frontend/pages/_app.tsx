@@ -11,7 +11,16 @@ import { ToastContainer } from 'react-toastify';
 import Head from 'next/head';
 
 export const App = ({ Component, pageProps }: AppProps) => {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            refetchOnWindowFocus: false,
+          },
+        },
+      })
+  );
 
   return (
     <>
