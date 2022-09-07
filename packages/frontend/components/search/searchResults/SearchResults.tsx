@@ -1,7 +1,7 @@
-import styles from './SearchResults.module.scss';
 import { Food } from '../../../types';
 import { SearchCard } from '../../shared/cards/SearchCard';
 import { ReactNode } from 'react';
+import { CardList } from '../../shared/cards/CardList';
 
 type Props = {
   data: { food: Food[]; totalPages: number } | undefined;
@@ -16,11 +16,11 @@ export const SearchResults = ({ data, pagination }: Props) => {
   return (
     <>
       {pagination}
-      <ul className={styles.cardList}>
+      <CardList>
         {data.food.map((food) => (
           <SearchCard food={food} key={food.id} />
         ))}
-      </ul>
+      </CardList>
       {pagination}
     </>
   );

@@ -3,7 +3,7 @@
   background-color: var(--white);
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.15);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   width: 450px;
@@ -27,4 +27,15 @@
   width: 100%;
   gap: 8px;
   margin-top: 15px;
+}
+
+.cardList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 25px 0;
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 10px;
 }

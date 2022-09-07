@@ -4,6 +4,7 @@ import { MealCard } from '../../shared/cards/MealCard';
 import { Nutrients } from '../../shared/nutrients/Nutrients';
 import { UserFood } from '../../../types';
 import { sumNutrients } from '../../../utils/helpers';
+import { CardList } from '../../shared/cards/CardList';
 
 interface Props {
   meal: string;
@@ -25,11 +26,11 @@ export const Meal = ({ meal, foodList }: Props) => {
       ) : (
         <>
           <Nutrients nutrients={sumNutrients(foodList)} />
-          <ul className={styles.cardList}>
+          <CardList>
             {foodList.map((food) => (
               <MealCard key={food.id} userFood={food} />
             ))}
-          </ul>
+          </CardList>
         </>
       )}
     </div>

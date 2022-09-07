@@ -24,9 +24,11 @@ export const CurrentDate = () => {
   };
 
   const handleShowDate = () => {
-    const newDate = startOfDay(new Date(dateRef.current?.value as string));
+    const newDate = dateRef.current?.value as string;
 
-    setDate(newDate);
+    if (newDate) {
+      setDate(startOfDay(new Date(newDate)));
+    }
   };
 
   return (
@@ -41,7 +43,7 @@ export const CurrentDate = () => {
       )}
       <div className={styles.subcontainer}>
         <Input
-          label="choose day"
+          label="choose from input"
           type="date"
           id={'date-input'}
           max={getInputDateFormat()}

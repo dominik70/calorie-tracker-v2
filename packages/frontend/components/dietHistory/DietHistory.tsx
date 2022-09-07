@@ -1,3 +1,4 @@
+import styles from './DietHistory.module.scss';
 import { SectionTitle } from '../shared/sectionTitle/SectionTitle';
 import { CurrentDate } from './currentDate/CurrentDate';
 import { Meal } from './meal/Meal';
@@ -23,7 +24,9 @@ export const DietHistory = () => {
     <>
       <SectionTitle>Your diet history</SectionTitle>
       <CurrentDate />
-      <h3>Total calories and nutrients intake today:</h3>
+      <h2 className={styles.heading}>
+        Total calories and nutrients intake today:
+      </h2>
       <Nutrients nutrients={sumNutrients(food)} />
       {MEALS.map((meal) => food.filter((food) => food.meal === meal)).map(
         (foodList, i) => (

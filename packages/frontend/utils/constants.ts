@@ -43,7 +43,7 @@ export const INITIAL_NUTRIENTS = [
       symbol: 'KCAL',
       name: 'ENERGY (KILOCALORIES)',
       unit: {
-        name: 'kCal',
+        name: '',
       },
     },
   },

@@ -1,11 +1,7 @@
 import '../styles/globals.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import type { AppProps } from 'next/app';
-import {
-  QueryClient,
-  QueryClientProvider,
-  Hydrate,
-} from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useState } from 'react';
 import { Layout } from '../components/layout/Layout';
 import { Navigation } from '../components/layout/navigation/Navigation';
@@ -24,22 +20,20 @@ export const App = ({ Component, pageProps }: AppProps) => {
       </Head>
       <DateProvider>
         <QueryClientProvider client={queryClient}>
-          <Hydrate state={pageProps.dehydratedState}>
-            <Layout>
-              <Navigation />
-              <Component {...pageProps} />
-              <ToastContainer
-                position="bottom-center"
-                newestOnTop
-                closeOnClick
-                draggable
-                pauseOnFocusLoss={false}
-                pauseOnHover
-                limit={5}
-                autoClose={4000}
-              />
-            </Layout>
-          </Hydrate>
+          <Navigation />
+          <Layout>
+            <Component {...pageProps} />
+            <ToastContainer
+              position="bottom-center"
+              newestOnTop
+              closeOnClick
+              draggable
+              pauseOnFocusLoss={false}
+              pauseOnHover
+              limit={3}
+              autoClose={4000}
+            />
+          </Layout>
           <ReactQueryDevtools />
         </QueryClientProvider>
       </DateProvider>
