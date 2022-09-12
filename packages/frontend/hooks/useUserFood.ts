@@ -44,7 +44,10 @@ export const useUserFood = () => {
     {
       onSuccess: () => {
         queryClient.invalidateQueries([FOOD_KEY, date]);
-        toast.success('Successfully added food');
+
+        const toastId = 'add-food';
+        toast.success('Successfully added food', { toastId });
+        toast.update(toastId);
       },
       onError,
     }
@@ -57,7 +60,10 @@ export const useUserFood = () => {
   >(({ foodId, body }) => updateUserFood({ foodId, userId, body }), {
     onSuccess: () => {
       queryClient.invalidateQueries([FOOD_KEY, date]);
-      toast.success('Successfully updated food');
+
+      const toastId = 'update-food';
+      toast.success('Successfully updated food', { toastId });
+      toast.update(toastId);
     },
     onError,
   });
@@ -67,7 +73,10 @@ export const useUserFood = () => {
     {
       onSuccess: () => {
         queryClient.invalidateQueries([FOOD_KEY, date]);
-        toast.success('Successfully deleted food');
+
+        const toastId = 'deleted-food';
+        toast.success('Successfully deleted food', { toastId });
+        toast.update(toastId);
       },
       onError,
     }

@@ -9,6 +9,6 @@ export const useSearchFood = (
   return useQuery<{ food: Food[]; totalPages: number }, ErrorType>(
     ['food_search', query, page, category],
     () => getFood({ query, page, category }),
-    { enabled, refetchOnWindowFocus: false }
+    { enabled }
   );
 };
