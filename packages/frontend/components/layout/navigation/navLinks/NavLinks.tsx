@@ -4,22 +4,32 @@ import clsx from 'clsx';
 import { NAV_PATHS } from '../../../../utils/constants';
 import { useRouter } from 'next/router';
 
-export const NavLinks = () => {
+interface Props {
+  isLoggedIn: boolean;
+}
+
+export const NavLinks = ({ isLoggedIn }: Props) => {
   const { pathname } = useRouter();
 
   return (
     <ul className={styles.list}>
-      {NAV_PATHS.map(({ path, name }) => (
-        <li className={styles.listItem} key={name}>
-          <Link href={path}>
-            <a
-              className={clsx(styles.link, path === pathname && styles.active)}
-            >
-              {name}
-            </a>
-          </Link>
-        </li>
-      ))}
+      {NAV_PATHS.map(
+        ({ path, name, isPrivate }) =>
+          (isLoggedIn || !isPrivate) && (
+            <li className={styles.listItem} key={name}>
+              <Link href={path}>
+                <a
+                  className={clsx(
+                    styles.link,
+                    path === pathname && styles.active
+                  )}
+                >
+                  {name}
+                </a>
+              </Link>
+            </li>
+          )
+      )}
     </ul>
   );
 };

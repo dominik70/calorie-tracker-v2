@@ -16,7 +16,7 @@ type UserId = string | undefined;
 
 export const addUserFood = (userId: UserId, body: CreateFoodBody) => {
   if (!userId) {
-    throw new Error('You must log in to save your diet history');
+    throw new Error('You must sign in to save your diet history');
   }
   return fetcher(`/users/${userId}/food`, {
     method: 'POST',
@@ -26,7 +26,7 @@ export const addUserFood = (userId: UserId, body: CreateFoodBody) => {
 
 export const deleteUserFood = (userId: UserId, foodId: string) => {
   if (!userId) {
-    throw new Error('You must log in to delete element');
+    throw new Error('You must sign in to delete element');
   }
   return fetcher(`/users/${userId}/food/${foodId}`, { method: 'DELETE' });
 };
@@ -39,7 +39,7 @@ interface UpdateUserFood {
 
 export const updateUserFood = ({ userId, foodId, body }: UpdateUserFood) => {
   if (!userId) {
-    throw new Error('You must log in to updae element');
+    throw new Error('You must sign in to updae element');
   }
   return fetcher(`/users/${userId}/food/${foodId}`, {
     method: 'PATCH',
@@ -55,7 +55,7 @@ interface GetUserFood {
 
 export const getUserFood = ({ userId, from, to }: GetUserFood) => {
   if (!userId) {
-    throw new Error('You must log in to view your food');
+    throw new Error('You must sign in to view your food');
   }
   return fetcher(`/users/${userId}/food?from=${from}&to=${to}`);
 };

@@ -1,7 +1,7 @@
 export const NAV_PATHS = [
-  { name: 'search food', path: '/search' },
-  { name: 'diet history', path: '/diet-history' },
-  { name: 'profile', path: '/profile' },
+  { name: 'search food', path: '/search' , isPrivate: false},
+  { name: 'diet history', path: '/diet-history', isPrivate: true },
+  { name: 'profile', path: '/profile' , isPrivate: true},
 ];
 export const DEBOUNCE_TIMEOUT = 750;
 export const DEFAULT_QUANTITY = 100;

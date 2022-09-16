@@ -28,7 +28,7 @@ export const Navigation = () => {
         <Logo />
         <Hamburger isOpen={isOpen} onToggle={toggleNavigation} />
         <div className={clsx(styles.menu, isOpen && styles.open)}>
-          <NavLinks />
+          <NavLinks isLoggedIn={!!user} />
           {user ? (
             <div className={styles.subcontainer}>
               <p className={styles.loggedUser}>{user.email}</p>

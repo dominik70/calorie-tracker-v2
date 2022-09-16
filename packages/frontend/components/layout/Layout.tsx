@@ -5,5 +5,5 @@ interface Props {
 }
 
 export const Layout = ({ children }: Props) => {
-  return <div className={styles.layout}>{children}</div>;
+  return <main className={styles.layout}>{children}</main>;
 };
